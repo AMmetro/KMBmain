@@ -1,15 +1,33 @@
 import React from "react";
 import sss from './Profile.module.css';
 import MyPosts from "./MyPosts/MyPosts";
+import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 
-const Profile = () => {
-  return ( <div className={sss.Profile}>
-             <div>
-                <img src="http://mirpozitiva.ru/uploads/posts/2016-08/1472042492_01.jpg"/>
-             </div>
 
-              <MyPosts/>
+
+
+
+
+const Profile = (props) => {
+
+
+
+  return (
+
+
+
+
+         <div className={sss.Profile}>
+
+             <ProfileInfo />
+
+             <MyPosts post={props.profilePage.post} />
+
+
+
+
+
 
          </div>
 

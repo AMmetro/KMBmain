@@ -1,36 +1,49 @@
 import React from "react";
 import sss from './Dialogs.module.css';
-import {NavLink} from "react-router-dom";
+import Message from "./Message/Message";
+import DialogItems from "./DialogItems/DialogItems";
+
 
 
 const Dialogs = (props) => {
-    return (
-          <div className={sss.dialogs}>
-                <div className={sss.dialogsItems}>
-                      <div className={sss.dialog + ' ' +sss.active}>
-                          <NavLink to="/dialogs/1"> Dimych </NavLink>
-                      </div>
-                       <div className={sss.dialog}>
-                           <NavLink to="/dialogs/2">Andrei</NavLink>
-                        </div>
-                        <div className={sss.dialog}>
-                            <NavLink to="/dialogs/3">Sveta</NavLink>
-                        </div>
-                         <div className={sss.dialog}>
-                             <NavLink to="/dialogs/3">Sasha</NavLink>
-                         </div>
 
-                                <div className={sss.messages}>
-                                     <div className={sss.message}>Hi</div>
-                                     <div className={sss.message}>How is you</div>
-                                     <div className={sss.message}>Yo</div>
-                                </div>
-                 </div>
-                </div>
+       let newPostElement=React.createRef();
+
+       function addPost() {
+           alert (newPostElement.current.value);
+       }
+
+
+        let dialogElement = props.dialogsPage.dialogs.map (element =>  <DialogItems id={element.id} name={element.name}/> );
+        let messagesElements = props.dialogsPage.message.map (elem => <Message message={elem.message} id={elem.id}/> );
+
+
+
+    return (
+
+
+        <div className={sss.dialogs}>
+
+
+
+            <div className={sss.dialogsItems}>
+
+                <div><textarea ref={newPostElement}></textarea></div>
+                <button onClick={addPost}>Add Message</button>
+
+                {dialogElement}
+            </div>
+
+            <div className={sss.messages}>
+                 {messagesElements}
+            </div>
+
+
+
+        </div>
+
 
     )
 }
 
-
-//
 export default Dialogs;

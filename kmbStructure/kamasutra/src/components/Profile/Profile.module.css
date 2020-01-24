@@ -2,7 +2,10 @@
     grid-area: profile;
     background-color: yellow;
 }
-.Profile img {
-    width: 20px;
+
+
+.descriptionBlock {
+
+    padding: 10px;
 }
 

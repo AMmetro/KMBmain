@@ -5,7 +5,12 @@ const News = () => {
 
     return <div className={sss.item}>
 
-            <div>   news 1  </div>
+            <div>   news 1  lorem loremloremloremloremloremloremloremloremloremloremlorem
+                loremloremloremloremloremloremloremloremloremloremlore
+                mloremloremloremloremloremloremlorem </div>
+
+        <button>Like</button>
+
 
           </div>
 }

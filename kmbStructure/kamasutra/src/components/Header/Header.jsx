@@ -1,12 +1,24 @@
 import React from "react";
 import sss from './Header.module.css';
+import image from './img/header1.jpg'
 
 
 
 const Header = () => {
+
+
+
+
     return <div className={sss.header}>
-                <div>
-                    <img src="http://mirpozitiva.ru/uploads/posts/2016-08/1472042492_01.jpg"/>
+
+           <div>
+
+
+                     <img src={image} ClassName={sss.imgHeader}/>
+
+
+
+
                 </div>
            </div>
 

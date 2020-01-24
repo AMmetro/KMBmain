@@ -1,5 +1,6 @@
 import React from 'react';
 import sss from './Post.module.css';
+import ProfileInfo from "../ProfileInfo/ProfileInfo";
 
 
 const Post = (props) => {
@@ -9,10 +10,14 @@ const Post = (props) => {
         <div className={sss.item}>
 
             <div>
-                <img src="https://hornews.com/images/news_large/c1d4b2b8ec608ea72764c5678816d5c9.jpg"/>{props.message}
+
+                {props.post}
+
+                {props.id}
+
             </div>
 
-            <span>like</span>{props.likesCount}
+            <span>like</span> {props.likesCount}
         </div>
 
     )

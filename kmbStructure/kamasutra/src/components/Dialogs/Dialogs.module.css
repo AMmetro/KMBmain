@@ -1,20 +1,32 @@
-        .dialogs {
-                dispaly: grid;
-                grid-template-columns: 2fr 10fr;
-        }
 
-        .dialogsItem {
-                padding: 10px;
-        }
+.dialogs {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 30% 30% 30%;
+}
 
-        .dialogsItem .active {
-           color: gold;
-        }
+.dialogsItems {
+    padding: 10px;
+    color: white;
+    }
 
-        .messages {
-           padding: 10;
-        }
 
-        .messages .message {
 
-        }
+ .dialog {
+     color: red;                   /* неприсваивает почемуто */
+     padding: 5px;
+ }
+
+
+.active {
+  color: red;
+}
+
+.messages {
+    padding: 10px;
+}
+
+.messages .message {
+    color: white;
+
+}
