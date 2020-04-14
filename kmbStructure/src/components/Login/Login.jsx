@@ -1,28 +1,46 @@
 import React from "react";
 import sss from './Login.module.css';
-import HeaderLogo from '../Header/img/desk.jpg'
-import {NavLink} from "react-router-dom";
+import {Field, reduxForm} from "redux-form";
 
 
-const Header = (props) => {
-
-
-
-    return <div className={sss.header}>
-
-
-                    <div className={sss.divholder}>
-
+const LoginForm = (props) => {
+    return (
+        <form onSubmit={props.handleSubmit}>
+            <div className={sss.header}>
+                <div className={sss.divholder}>
+                </div>
+                <div>
+                    <div><Field placeholder={"Login"} name={"login"} component={"input"}/></div>
+                    <div><Field placeholder={"Password"} name={"Password"} component={"input"}/></div>
+                    <div><Field type={"checkbox"} name={"rememberMe"} component={"input"}/>remember me</div>
+                    <div>
+                        <button>login</button>
                     </div>
-                       {/*<img src={HeaderLogo} className={sss.imgHeaderLogo}/>*/}
-
-                        <div className={sss.loginBlock}>
-
-                            <h1> LOGIN </h1>
-
-                        </div>
-           </div>
-                    }
 
 
-export default Header;
+                </div>
+            </div>
+        </form>
+    )
+}
+
+const LoginReduxForm=reduxForm ({form:"login" }) (LoginForm);
+
+
+
+    const Login = (props) => {
+        const onSubmit=(formData)=> {
+            console.log(formData)  }
+        return ( <div>
+            <h1 className={sss.divholder}>Login </h1>
+            <LoginReduxForm onSubmit={onSubmit}/>
+            </div>
+        )
+    }
+
+
+
+
+
+
+export default Login;
