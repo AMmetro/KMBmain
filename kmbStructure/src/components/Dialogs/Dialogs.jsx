@@ -4,6 +4,7 @@ import Message from "./Message/Message";
 import DialogItems from "./DialogItems/DialogItems";
 import {Redirect} from "react-router-dom";
 import {Field, reduxForm} from "redux-form";
+import AddMessageForm from "./Message/AddMessageForm";
 
 
 const Dialogs = (props) => {
@@ -28,16 +29,8 @@ const Dialogs = (props) => {
     return (
         <div className={sss.dialogs}>
             <div className={sss.dialogsItems}>
-                {/*<div>*/}
-                {/*    <textarea ref={newPostElement}*/}
-                {/*              value={newMessageBody}*/}
-                {/*              placeholder="put yours message"*/}
-                {/*              onChange={onNewMessageChange}>*/}
-                {/*    </textarea>*/}
-                {/*</div>*/}
-                {/*<button onClick={onSendMessageClick}>Add Message</button>*/}
-                {dialogElement}
-                <AddMessageReduxForm onSubmit={addNewMessage} />
+                 {dialogElement}
+                <AddMessageForm onSubmit={addNewMessage} />
             </div>
             <div className={sss.messages}>
                 {messagesElements}
@@ -48,19 +41,18 @@ const Dialogs = (props) => {
 };
 
 
-const AddMessageForm = (props) => {
-    return (
-        <form onSubmit={props.handleSubmit}>
-            <div>
-                <Field component={"textarea"} name={"newMessageBody"} placeholder={"enter you message"} />
-
-            </div>
-            <div><button>Add Message</button></div>
-        </form>
-    )
-};
-
-const AddMessageReduxForm=reduxForm ({form:"dialogAddMessageForm" }) (AddMessageForm);
+// const AddMessageForm = (props) => {
+//     return (
+//         <form onSubmit={props.handleSubmit}>
+//             <div>
+//                 <Field component={"textarea"} name={"newMessageBody"} placeholder={"enter you message"} />
+//             </div>
+//             <div><button>Add Message</button></div>
+//         </form>
+//     )
+// };
+//
+// const AddMessageReduxForm=reduxForm ({form:"dialogAddMessageForm" }) (AddMessageForm);
 
 
 export default Dialogs;

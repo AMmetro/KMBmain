@@ -3,7 +3,7 @@ import Header from "./Header"
 import {connect} from "react-redux";
 import Preloader from "../Common/Preloader/Preloader"
 import * as axios from "axios";
-import {getAuthUserData, setAuthUserData} from "../../redux/auth-reducer";
+import {getAuthUserData, logout, setAuthUserData} from "../../redux/auth-reducer";
 
 
 class HeaderContainer extends React.Component {
@@ -40,7 +40,7 @@ const mapStateToProps=(state) => ({
 
 
 
-export default connect(mapStateToProps,{setAuthUserData,getAuthUserData}) (HeaderContainer);
+export default connect(mapStateToProps,{setAuthUserData,getAuthUserData,logout}) (HeaderContainer);
 
 
 

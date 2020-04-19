@@ -40,5 +40,10 @@
     color: blue;
 }
 
+.formSummaryError {
+    /*border: red 1px solid;*/
+    color: red;
+}
+
 
 

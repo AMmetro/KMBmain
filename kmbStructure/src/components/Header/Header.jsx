@@ -19,7 +19,9 @@ const Header = (props) => {
 
                         <div className={sss.loginBlock}>
 
-                            {props.isAuth? `You are ${props.login}`: <NavLink to={"/login"}> SignIn </NavLink> }
+                            {props.isAuth
+                                ?<div>You are {props.login} <button onClick={props.logout}>Logout</button></div>
+                                : <NavLink to={"/login"}> SignIn </NavLink> }
                             {/*{props.state}*/}
 
                         </div>
