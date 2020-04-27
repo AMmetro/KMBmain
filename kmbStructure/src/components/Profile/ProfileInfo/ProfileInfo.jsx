@@ -2,6 +2,7 @@ import React from 'react';
 import sss from './ProfileInfo.module.css';
 import Preloader from "../../Common/Preloader/Preloader";
 import ProfileStatus from "./ProfileStatus";
+import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 
 
 const ProfileInfo = (props) => {
@@ -19,7 +20,7 @@ const ProfileInfo = (props) => {
 
             <div className={sss.descriptionBlock}>
 
-                <ProfileStatus //status={"temporaly status"}
+                <ProfileStatusWithHooks //status={"temporaly status"}
                                status={props.status}
                                props={props}
                                updateStatus={props.updateStatus}

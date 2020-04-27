@@ -82,14 +82,15 @@ export const followSucsess = (userId) => { return {type: "FOLLOW", userId} };
 export const unfollowSucsess = (userId) => { return {type: "UNFOLLOW", userId} };
 export const setUsers = (users) => ({type: "SET-USERS", users});
 export const setTotalUsersCount = (totalCount) => ({type: "SET-TOTAL-USER-COUNT", totalCount});
-export const setCurrentPage = (pageNumber) => ({type: "SET-CURRENT-PAGE", pageNumber});
+export const setCurrentPage = (pageNumber) => {return {type: "SET-CURRENT-PAGE", pageNumber}};
 export const toggleIsFetching = (isFetching) => ({type: "TOGGLE_IS_FETCHING", isFetching});
 export const toggleFollowInProgres = (pageNumber) => ({type: "TOGGLE_IS_FOLLOW_PROGRESS", pageNumber});
 
-export const getUsersTC = (CurrentPage, PageSize) => {
+export const requestUsersTC = (CurrentPage, PageSize) => {
     return (dispatch) => {      dispatch(toggleIsFetching(true));
                                     userAPI.getUsers(CurrentPage, PageSize).then(data => {
                                         dispatch(toggleIsFetching(false));
+                                        dispatch(setCurrentPage(CurrentPage));
                                         dispatch(setUsers(data.items));
                                         dispatch(setTotalUsersCount(data.totalCount)) })};
 };

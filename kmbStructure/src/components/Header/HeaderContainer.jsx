@@ -3,15 +3,15 @@ import Header from "./Header"
 import {connect} from "react-redux";
 import Preloader from "../Common/Preloader/Preloader"
 import * as axios from "axios";
-import {getAuthUserData, logout, setAuthUserData} from "../../redux/auth-reducer";
+import {logout, setAuthUserData} from "../../redux/auth-reducer";
 
 
 class HeaderContainer extends React.Component {
 
-    componentDidMount() {
+    // componentDidMount() {
         // this.props.toggleIsFetching (true);
 
-         this.props.getAuthUserData();
+         // this.props.getAuthUserData();
 
         // axios.get(`https://social-network.samuraijs.com/api/1.0/auth/me`,
         //     {withCredentials:true})
@@ -21,14 +21,12 @@ class HeaderContainer extends React.Component {
         //             this.props.setAuthUserData(id, email, login);
         //                                      }
         //     });
-    };
+    // };
 
 
     render() {
-
-        return <Header {...this.props} />    // передаем пропсы !!!!!!!!!!!!!!!!!!
+       return <Header {...this.props} />    // передаем пропсы !!!!!!!!!!!!!!!!!!
     }
-
 }
 
 const mapStateToProps=(state) => ({
@@ -40,7 +38,7 @@ const mapStateToProps=(state) => ({
 
 
 
-export default connect(mapStateToProps,{setAuthUserData,getAuthUserData,logout}) (HeaderContainer);
+export default connect(mapStateToProps,{setAuthUserData,logout}) (HeaderContainer);
 
 
 
