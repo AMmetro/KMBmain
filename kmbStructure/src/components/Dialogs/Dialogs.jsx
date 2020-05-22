@@ -7,6 +7,7 @@ import {Field, reduxForm} from "redux-form";
 import AddMessageForm from "./Message/AddMessageForm";
 
 
+
 const Dialogs = (props) => {
 
     let state = props.dialogsPage;

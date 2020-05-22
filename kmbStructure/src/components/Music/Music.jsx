@@ -38,41 +38,12 @@ class Music extends React.Component {
             // по умолчанию Value это между тэгами, иначе что яво явно указано в "value="
        );
 
-
-
-
-
-
-
-
-        //
-        // let temp=document.getElementsByClassName("test");
-        // temp.onclick=doo;
-        //
-        // function doo () {
-        //  alert("work")
-        // }
-
-
-
-
-
-
-
         return (
             <div className={sss.Music}>
 
 
 
-
-                
-
                 {/*<button className="test">test</button>*/}
-
-
-
-
-
 
 
                <button>Add song</button>

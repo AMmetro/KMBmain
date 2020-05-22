@@ -9,7 +9,6 @@ import store from "./redux/redux-store";
 
 
 
-
 // let rerenderEntireTree = ()=> {
 
     ReactDOM.render(
@@ -17,6 +16,8 @@ import store from "./redux/redux-store";
             <Provider store={store}>
             <App />
             </Provider>
+
+
         </BrowserRouter>, document.getElementById('root'));
 // };
 

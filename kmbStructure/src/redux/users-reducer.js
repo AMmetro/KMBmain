@@ -15,9 +15,9 @@ let initialState =
             // {id: 2, photoUrl:'', followed: false, fullName: 'Sasha', status: 'I am a boss too', location:{city:'Moskow', country:'Russia'} },
             // {id: 3, photoUrl:'', followed: true, fullName: 'Andrew', status: 'I am a boss too', location:{city:'Kiew', country:'Ukraine'} },
         ],
-        pageSize: 5,
-        totalUserCount: 11,
-        currentPage: 2,
+        pageSize: 10,
+        totalUserCount: 1,
+        currentPage: 1,
         isFetching: true,
         followInProgres: false
     };
@@ -87,16 +87,18 @@ export const toggleIsFetching = (isFetching) => ({type: "TOGGLE_IS_FETCHING", is
 export const toggleFollowInProgres = (pageNumber) => ({type: "TOGGLE_IS_FOLLOW_PROGRESS", pageNumber});
 
 export const requestUsersTC = (CurrentPage, PageSize) => {
-    return (dispatch) => {      dispatch(toggleIsFetching(true));
-                                    userAPI.getUsers(CurrentPage, PageSize).then(data => {
-                                        dispatch(toggleIsFetching(false));
-                                        dispatch(setCurrentPage(CurrentPage));
-                                        dispatch(setUsers(data.items));
-                                        dispatch(setTotalUsersCount(data.totalCount)) })};
+    return async (dispatch) => {
+                    dispatch(toggleIsFetching(true));
+                    let data = await userAPI.getUsers(CurrentPage, PageSize);
+                     dispatch(toggleIsFetching(false));
+                     dispatch(setCurrentPage(CurrentPage));
+                     dispatch(setUsers(data.items));
+                     dispatch(setTotalUsersCount(data.totalCount))
+                                };
 };
 
 
-export const follow = (userId) => {
+export const follow = (userId) => {                            // reducer with ".then"
     return (dispatch) => {
         dispatch(toggleFollowInProgres(true, userId));
         userAPI.follow (userId)
@@ -109,18 +111,30 @@ export const follow = (userId) => {
     }
 }
 
-export const unfollow = (userId) => {
-    return (dispatch) => {
+export const unfollow = (userId) => {                      // reducer with "async - await"
+    return async (dispatch) => {
         dispatch(toggleFollowInProgres(true, userId));
-        userAPI.unfollow (userId)
-            .then(response => {
-                if (response.data.resultCode == 0) {
+        let response = await userAPI.unfollow (userId)
+                 if (response.data.resultCode == 0) {
                     dispatch(unfollowSucsess(userId));
                 }
                 dispatch(toggleFollowInProgres(false, userId));
-            });
+            };
     }
-}
+
+
+// export const unfollow = (userId) => {
+//     return (dispatch) => {
+//         dispatch(toggleFollowInProgres(true, userId));
+//         userAPI.unfollow (userId)
+//             .then(response => {
+//                 if (response.data.resultCode == 0) {
+//                     dispatch(unfollowSucsess(userId));
+//                 }
+//                 dispatch(toggleFollowInProgres(false, userId));
+//             });
+//     }
+// }
 
 
 export default usersReducer
